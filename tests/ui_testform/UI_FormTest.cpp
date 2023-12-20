@@ -16,10 +16,11 @@ void UI_FormTest::testUI() {
     resultLabel = form.getResultLabel();
 
     mainWidget->show();
-    QTest::keyClicks(textLineEdit, "hello world");
-    QTest::keyClicks(subStringLineEdit, "m");
+    QTest::keyClicks(textLineEdit,"hello");
+    QTest::keyClicks(subStringLineEdit, "el");
     QTest::mouseClick(searchButton, Qt::LeftButton);
-    QCOMPARE(resultLabel->text(), QString("6 11 21 22 "));
+    qDebug() << "Result label text: " << resultLabel->text();
+    QCOMPARE(resultLabel->text(), QString("1 "));
 }
 
 void UI_FormTest::cleanupTestCase() {
@@ -27,4 +28,3 @@ void UI_FormTest::cleanupTestCase() {
 }
 
 QTEST_MAIN(UI_FormTest)
-

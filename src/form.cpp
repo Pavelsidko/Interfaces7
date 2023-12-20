@@ -1,5 +1,5 @@
 #include "form.h"
-#include "ui_form.h"
+#include "ui_Form.h"
 
 Form::Form(QWidget *parent) :
     QWidget(parent),
@@ -63,6 +63,22 @@ QVector<int> Form::boyerMooreSearch(const QString &text, const QString &pattern)
             s += std::max(1, j - badChar[text[s + j].toLatin1()]);
         }
     }
-    //2
+
     return indices;
+}
+
+QLineEdit* Form::getTextLineEdit() const{
+    return ui->str;
+}
+
+QLineEdit* Form::getSubStringLineEdit() const{
+    return ui->sub_str;
+}
+
+QPushButton* Form::getSearchButton() const{
+    return ui->pushButton;
+}
+
+QLabel* Form::getResultLabel() const{
+    return ui->result;
 }
